@@ -8,8 +8,6 @@ RAG：知识库/联网搜索...
 
 用户提问文本通过嵌入模型转换为向量去数据库里进行相似度检索
 
-### vue2react
-
 ### AICR
 
 **实现**
@@ -50,6 +48,22 @@ Transformer 的核心是**自注意力机制**，它计算的是**词语之间�
 端侧和工程侧(自动化)
 
 样板间 组件库 低代码 figma2code
+
+### Prompt Engineering
+
+**好的 Prompt = 清晰的任务 + 充分的上下文 + 明确的约束 + 期望的输出格式**
+
+提示词工程优化
+
+- 说的清晰一些
+- 给上下文（Context）
+- Zero-shot / Few-shot（零样本 / 少样本）
+- Chain-of-Thought（思维链 / CoT），让 AI "一步一步想"
+- Role Prompting（角色扮演）
+-  Structured Output（结构化输出）
+-  ReAct（Reasoning + Acting），让 AI 先思考再行动，openspec
+- Self-Consistency（自一致性）,对同一个问题问多次，取最一致的答案，减少幻觉
+- 分块处理（Chunking），避免上下文丢失
 
 ### MCP
 
@@ -205,8 +219,3 @@ Get，Post区别
 限制：URL 有长度限制，会干预 Get 请求，这个是浏览器决定的
 编码：GET 请求只能进行 URL 编码，只能接收 ASCII 字符，而 POST 没有限制。POST 支持更多的编码类型，而且不对数据类型做限制
 从 TCP 的角度，GET 请求会把请求报文一次性发出去，而 POST 会分为两个 TCP 数据包，首先发 header 部分，如果服务器响应 100(continue)， 然后发 body 部分
-
-
-
-将文件中的全局语句定义为 part ，并将 part 标记为是否有副作用。比如语句 let foo = 3 就没有副作用，如果没有用到 foo 就可以将这个语句删除。但是 let foo = bar() 就有副作用，即使没有用到 foo，无法保证移除函数调用 bar() 之后程序行为一致。
-Tree shaking 通过从入口文件（这里是index.js）访问所有有副作用的 part，并沿着 import语句访问所有引用文件中有副作用的 part，只有这个过程中访问到的 part 才会被放进打包结果中
